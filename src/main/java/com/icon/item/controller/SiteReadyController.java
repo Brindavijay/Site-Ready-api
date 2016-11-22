@@ -5,6 +5,7 @@ import com.icon.item.dto.Item;
 import com.icon.item.enums.ItemSelectType;
 import com.icon.item.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
