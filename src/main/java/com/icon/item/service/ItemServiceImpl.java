@@ -6,6 +6,7 @@ import com.icon.item.dto.CompactItem;
 import com.icon.item.dto.Item;
 import com.icon.item.enums.ItemSelectType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
