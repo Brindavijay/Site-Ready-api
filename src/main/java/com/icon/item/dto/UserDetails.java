@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
- * Created by A541351 on 11/18/2016.
+ * This class is a Entity class for User Details
  */
 @Document
 public class UserDetails
