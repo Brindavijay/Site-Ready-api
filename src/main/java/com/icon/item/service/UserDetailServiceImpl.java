@@ -2,6 +2,7 @@ package com.icon.item.service;
 
 import com.icon.item.dao.UserDetailsRepository;
 import com.icon.item.dto.UserDetails;
+import com.icon.item.exception.BadRequestException;
 import com.icon.item.exception.LoginException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,12 @@ public class UserDetailServiceImpl implements UserDetailsService
      }
 
     @Override
-    public UserDetails signIn(String mailId, String password) throws LoginException
+    public UserDetails signIn(String mailId, String password) throws LoginException,BadRequestException
     {
+        if(mailId == null){
+            throw new BadRequestException("MailId", " value not found");
+        }
+
         UserDetails u=userDetailsRepository.findByMailIdAndPassword(mailId,password);
         if(u==null){
             throw new LoginException("Invalid email and password");

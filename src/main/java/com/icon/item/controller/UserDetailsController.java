@@ -1,6 +1,7 @@
 package com.icon.item.controller;
 
 import com.icon.item.dto.UserDetails;
+import com.icon.item.exception.BadRequestException;
 import com.icon.item.exception.LoginException;
 import com.icon.item.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,11 @@ public class UserDetailsController
     @RequestMapping(path="/signUp",method= RequestMethod.POST)
     public  void signUp(@RequestBody UserDetails userDetails)
     {
+
         userDetailsService.signUp(userDetails);
     }
     @RequestMapping(path="/signIn",method= RequestMethod.POST)
-    public UserDetails signIn(@RequestBody UserDetails userDetails) throws LoginException
+    public UserDetails signIn(@RequestBody UserDetails userDetails) throws LoginException,BadRequestException
     {
         return userDetailsService.signIn(userDetails.getMailId(), userDetails.getPassword());
 

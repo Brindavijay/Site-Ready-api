@@ -7,6 +7,7 @@ import com.icon.item.dto.Item;
 import com.icon.item.enums.ItemSelectType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 /**
  * Created by A541351 on 10/23/2016.
  */
-@Service
+@Service("itemService")
 public class ItemServiceImpl implements ItemService {
 
     @Autowired
@@ -23,6 +24,18 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public void deleteItem(String itemId) {
         itemRepository.delete(itemId);
+    }
+
+    protected boolean isvalidateItemId(String itemId){
+        if(itemId == null || itemId == ""){
+            return false;
+        }
+
+        if(!itemId.startsWith("A")){
+            return false;
+        }
+
+        return true;
     }
 
     @Override

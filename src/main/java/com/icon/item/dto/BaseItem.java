@@ -12,7 +12,7 @@ public class BaseItem {
     @Id
     private String id;
 
-    private String imagePath;
+    private String imagePath = new String();
 
     private String shortDesc;
 
