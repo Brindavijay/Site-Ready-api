@@ -25,7 +25,7 @@ public class SiteReadyController {
 
     @RequestMapping(method= RequestMethod.POST, path = "/createItem")
     public void create(@RequestBody List<Item> itemList) {
-
+        System.out.println("Sample log");
         itemService.saveItem(itemList);
     }
 
